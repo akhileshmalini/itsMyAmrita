@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "407471231841",
+    "firebase_url": "https://itsmyamrita-21d0b.firebaseio.com",
+    "project_id": "itsmyamrita-21d0b",
+    "storage_bucket": "itsmyamrita-21d0b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:407471231841:android:0e43dcf2ec6f6595",
+        "android_client_info": {
+          "package_name": "amrita.com.itsmyamrita"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "407471231841-7f4sk3kvh2p74piu15j5h8b8umgjq6n1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "amrita.com.itsmyamrita",
+            "certificate_hash": "DE1A41CBE7EF658624FACE39FE5E9A4B9CDE113D"
+          }
+        },
+        {
+          "client_id": "407471231841-qg93cjd09r5ibo27bqi9uee3kjpjrl7q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGOr5qoLgJHg1BhHxWCPULm1KRY5IU0hw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "407471231841-qg93cjd09r5ibo27bqi9uee3kjpjrl7q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

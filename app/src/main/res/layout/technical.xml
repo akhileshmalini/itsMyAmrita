@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/colorBackground"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="36000dp"
+        android:id="@+id/list"
+        android:divider="@null"
+        android:layout_below="@+id/head"
+        android:dividerHeight="0dp"
+        android:smoothScrollbar="true"
+        />
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Amritadhara"
+                android:textColor="#ffffff"
+                android:textSize="40dp" />
+
+
+            <ListView
+                android:id="@+id/list_view"
+                android:layout_width="match_parent"
+                android:layout_height="600dp"
+                android:layout_below="@+id/head"
+                android:divider="@null"
+                android:dividerHeight="0dp" />
+
+            <TextView
+                android:id="@+id/desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/list_view"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="Amritadhara is a student activities ensemble which consists of cultural clubs under the banner of Sanskriti(The Cultural Wing) and technical forums under the domain of Prachodana(The Technical Wing). The Amritadhara is chaired by Dr. S. Ravishankar, Chairperson, Dept. of EEE, with Prachodana and Sanskriti, the technical and cultural wings being chaired by Ms. Shali S., Asst. Professor, Dept. of ME, and Ms. G. S. Jyotsna, Asst. Professor, Dept. of English respectively."
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
