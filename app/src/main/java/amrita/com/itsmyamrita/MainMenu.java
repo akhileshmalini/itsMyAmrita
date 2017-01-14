@@ -7,8 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.yalantis.phoenix.PullToRefreshView;
+
+import java.util.Calendar;
 
 /**
  * Created by Akhilesh on 9/9/2016.
@@ -40,8 +43,8 @@ public class MainMenu extends AppCompatActivity {
         });
 
         list= (ListView) findViewById(R.id.list_view);
-        String[] names={"Home","Forums","Faculty"};
-        int[] imgs={R.drawable.home,R.drawable.clubs,R.drawable.teachers};
+        String[] names={"Home","Forums","Faculty","CalendarAct"};
+        int[] imgs={R.drawable.home,R.drawable.clubs,R.drawable.teachers,R.drawable.calendars};
         list.setAdapter(new HomeAdapter(getApplicationContext(),names,imgs));
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener()
@@ -70,6 +73,15 @@ public class MainMenu extends AppCompatActivity {
                     /** Fading Transition Effect */
                     MainMenu.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 }
+
+                if(position==3){
+                    Intent i = new Intent(MainMenu.this, CalendarAct.class);
+                    startActivity(i);
+
+                    /** Fading Transition Effect */
+                    MainMenu.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                }
+
             }
         });
 
