@@ -2,7 +2,10 @@ package amrita.com.itsmyamrita;
 
 import android.content.ClipData;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -13,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,7 +44,8 @@ public class FacultyList extends AppCompatActivity {
     private DatabaseReference mDatabase,mFacultyRef,mDepartmentRef;
     FacultyAdapter mAdapter;
     private List<f_Faculty> facultyList = new ArrayList<>();
-
+    ProgressBar progressBar;
+    int a=0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -52,6 +57,7 @@ public class FacultyList extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         String dept  = bundle.getString("department","CSE");
+            progressBar= (ProgressBar) findViewById(R.id.progressBar4);
 
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -60,7 +66,33 @@ public class FacultyList extends AppCompatActivity {
         mDepartmentRef = mFacultyRef.child(dept);
         mDepartmentRef.keepSynced(true);
 
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if(facultyList.size()==0){
+                    if(isNetworkAvailable()){
+                        while(a==5) {
+                            Toast.makeText(getApplicationContext(), "Please Wait...Fetching", Toast.LENGTH_SHORT).show();
+                        a+=1;
+                        }
+                            handler.postDelayed(this, 500);
 
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(),"Please Connect to Internet",Toast.LENGTH_SHORT).show();
+                        handler.postDelayed(this, 500);
+
+                    }
+                }
+                else if(facultyList.size()!=0){
+                    progressBar.setVisibility(View.INVISIBLE);
+                    handler.removeCallbacks(this);
+                }
+
+
+            }
+        }, 500);
 
 
         ValueEventListener post = new ValueEventListener() {
@@ -98,7 +130,12 @@ public class FacultyList extends AppCompatActivity {
 
     }
 
-
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
 
     @Override
     public void onBackPressed() {

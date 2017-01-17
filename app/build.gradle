@@ -39,6 +39,7 @@ dependencies {
     compile 'com.github.devlight.navigationtabbar:navigationtabbar:1.2.5'
     compile 'com.google.firebase:firebase-database:9.4.0'
     compile 'com.google.firebase:firebase-messaging:9.4.0'
+    compile 'com.github.paolorotolo:appintro:4.1.0'
 
     compile 'jp.wasabeef:glide-transformations:2.0.1'
     compile 'com.yalantis:flipviewpager:1.0.0'

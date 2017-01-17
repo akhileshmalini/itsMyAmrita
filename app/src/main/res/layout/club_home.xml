@@ -65,7 +65,7 @@
 
 
             <TextView
-                android:text="Tap to Recieve Notifications"
+                android:text="Tap to Receive Notifications"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -76,7 +76,7 @@
                 android:id="@+id/bellmsg" />
 
             <TextView
-                android:text="You are receiving Notifications!"
+                android:text="You are Receiving Notifications!"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"

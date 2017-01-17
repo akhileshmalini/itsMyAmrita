@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="amrita.com.itsmyamrita">
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -55,7 +56,7 @@
     <application
         android:allowBackup="true"
         android:name=".Application"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/amritaicon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -63,6 +64,7 @@
 
         <activity
             android:name=".SplashActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -75,10 +77,12 @@
 
         </activity>
 
+
         <activity android:name=".ClubMain"
             android:theme="@style/AppTheme_Club"></activity>
         <activity android:name=".Forums">
         </activity>
+        <activity android:name=".Home"></activity>
         <activity android:name=".FacultyList"></activity>
         <activity android:name=".Faculty"></activity>
         <activity android:name=".Technical">
@@ -86,6 +90,8 @@
 
         <activity android:name=".Dhara">
         </activity>
+
+        <activity android:name=".Developer"></activity>
         <activity android:name=".EventViewFragment"></activity>
         <activity android:name=".Cultural"></activity>
 <activity android:name=".Calview"></activity>

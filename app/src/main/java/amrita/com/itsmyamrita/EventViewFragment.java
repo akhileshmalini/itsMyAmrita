@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -26,18 +27,19 @@ import com.bumptech.glide.Glide;
 public class EventViewFragment extends AppCompatActivity {
     private View v;
     private ImageView imageView, call;
-    private TextView txtperson, txtdate, txtdes, txtloc, txtonduty, txttitle,txt;
+    private TextView txtperson, txtdate, txtdes, txtloc, txtonduty, txttitle, txt;
     private Toolbar toolbar;
-    private CardView card;
+    private ImageView card;
     Typeface custom_font;
     Typeface custom_font1;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.event_view);
 
-        custom_font = Typeface.createFromAsset(getApplicationContext().getAssets(),  "fonts/Barrio-Regular.otf");
-        custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(),  "fonts/Quicksand-Regular.otf");
+        custom_font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/Barrio-Regular.otf");
+        custom_font1 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/Quicksand-Regular.otf");
 
         Bundle bundle = getIntent().getExtras();
         String person = bundle.getString("evContactPerson");
@@ -50,12 +52,14 @@ public class EventViewFragment extends AppCompatActivity {
         String poster = bundle.getString("evPoster");
         String Time = bundle.getString("evTime");
 
+
+
         txttitle = (TextView) findViewById(R.id.txtEventTitle);
         txtperson = (TextView) findViewById(R.id.txtname);
         txtdate = (TextView) findViewById(R.id.txtEvDateTime);
         txtdes = (TextView) findViewById(R.id.txtEvDescp);
         txtonduty = (TextView) findViewById(R.id.txtonDuty);
-        card= (CardView) findViewById(R.id.cardView);
+        card = (ImageView) findViewById(R.id.imgcall);
         txt = (TextView) findViewById(R.id.txt);
 
         txttitle.setTypeface(custom_font);
@@ -68,38 +72,33 @@ public class EventViewFragment extends AppCompatActivity {
 
         txttitle.setText(name);
         txtperson.setText(person);
-        txtdate.setText(Date + " | " + Time+" @"+Location);
+        txtdate.setText(Date + " | " + Time + " @" + Location);
         txtdes.setText(Des);
-        if(Onduty.equals("Provided")){
+        if (Onduty.equals("Provided")) {
             txtonduty.setText("On Duty Leave is " + Onduty);
 
-        }
-        else if(Onduty.equals("NotProvided")){
+        } else if (Onduty.equals("NotProvided")) {
             txtonduty.setText("On Duty Leave is Not Provided");
 
-        }
-        else{
+        } else {
             txtonduty.setText("On Duty Leave is " + Onduty);
 
         }
+
         card.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+
+
+
+
+
+                String uri = "tel:" + Phone.trim();
                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:"+Phone));
-                if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
-                    return;
-                }
+                intent.setData(Uri.parse(uri));
                 startActivity(intent);
-            }
-        });
+                 }
+             });
 
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle(name);
@@ -124,5 +123,7 @@ public class EventViewFragment extends AppCompatActivity {
 
 
     }
+
+
 
 }
