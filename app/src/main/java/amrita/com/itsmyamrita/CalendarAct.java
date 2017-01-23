@@ -43,8 +43,8 @@ public class CalendarAct extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar);
-        final String MonthsImg[]=new String[12];
 
+        final String[] MonthsImg={"a","a","a","a","a","a","a","a","a","a","a","a"};
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mSectionRef = mDatabase.child("Calendar");
 
@@ -164,7 +164,6 @@ public class CalendarAct extends AppCompatActivity {
 
                             }else{
                                 if(!(MonthsImg[0].length()>=10)){
-                                    Toast.makeText(getApplicationContext(),"Please Connect to internet to Fetch!",Toast.LENGTH_SHORT).show();
 
                                 }else{
                                 i = new Intent(CalendarAct.this, Calview.class);
@@ -172,7 +171,10 @@ public class CalendarAct extends AppCompatActivity {
                                 startActivity(i);
                                 /** Fading Transition Effect */
                                 CalendarAct.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                            }}
+                            }
+
+
+                            }
 
 
                         }

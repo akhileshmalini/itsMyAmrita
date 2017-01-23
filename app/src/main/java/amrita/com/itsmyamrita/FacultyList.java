@@ -53,7 +53,6 @@ public class FacultyList extends AppCompatActivity {
         setContentView(R.layout.faculty_listview);
 
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.faclist);
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
 
         Bundle bundle = getIntent().getExtras();
         String dept  = bundle.getString("department","CSE");
